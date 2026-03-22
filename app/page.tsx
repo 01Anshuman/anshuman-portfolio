@@ -2,6 +2,7 @@ import Nav from '@/components/Nav';
 import Hero from '@/components/Hero';
 import TechStack from '@/components/TechStack';
 import Services from '@/components/Services';
+import SDR from '@/components/SDR';
 import Projects from '@/components/Projects';
 import Metrics from '@/components/Metrics';
 import Process from '@/components/Process';
@@ -18,6 +19,7 @@ export default function Home() {
         <Hero />
         <TechStack />
         <Services />
+        <SDR />
         <Projects />
         <Metrics />
         <Process />

@@ -22,7 +22,8 @@ export default function Testimonials() {
           </h2>
         </motion.div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5rem' }} className="testimonials-grid">
+        <div style={{ display: 'flex', justifyContent: 'center' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, minmax(0, 560px))', gap: '1.5rem', width: '100%', maxWidth: '1160px' }} className="testimonials-grid">
           {TESTIMONIALS.map((t, i) => (
             <motion.div
               key={t.name}
@@ -67,10 +68,10 @@ export default function Testimonials() {
           ))}
         </div>
       </div>
+        </div>
 
       <style>{`
-        @media (max-width: 480px) { .testimonials-grid { grid-template-columns: 1fr !important; } }
-        @media (min-width: 481px) and (max-width: 900px) { .testimonials-grid { grid-template-columns: repeat(2, 1fr) !important; } }
+        @media (max-width: 700px) { .testimonials-grid { grid-template-columns: 1fr !important; } }
       `}</style>
     </section>
   );

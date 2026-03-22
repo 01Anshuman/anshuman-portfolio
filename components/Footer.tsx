@@ -25,7 +25,7 @@ export default function Footer() {
               </span>
               <span style={{ fontFamily: 'Syne, sans-serif', fontWeight: 700, fontSize: '0.95rem', color: '#f0f0f0' }}>Anshuman Mishra</span>
             </div>
-            <p style={{ color: '#8892a4', fontSize: '0.82rem' }}>Building scalable digital solutions from Bengaluru.</p>
+            <p style={{ color: '#8892a4', fontSize: '0.82rem' }}>SDR · Builder · Communicator · Building in public from Bengaluru.</p>
           </div>
 
           {/* Quick links */}

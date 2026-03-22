@@ -15,9 +15,9 @@ export const TERMINAL_ROLES = [
 ];
 
 export const TRUST_ITEMS = [
-  '3+ Projects Delivered',
-  '20+ hrs/week saved for clients',
-  'Based in Bengaluru',
+  'SDR · US Market · 100+ weekly outbound touchpoints',
+  '3+ Projects Delivered · 20+ hrs/week saved',
+  'Bengaluru, India · Open to opportunities',
 ];
 
 export const TECH_STACK = {
@@ -134,6 +134,32 @@ export const PROJECTS = [
     banner: '/growwithanshuman_banner.png',
     link: 'https://growwithanshuman.netlify.app/',
   },
+  {
+    title: 'LinkedIn Note Generator — Custom GPT',
+    emoji: null,
+    placeholderLabel: 'GPT Tool',
+    badges: ['AI', 'Sales', 'Custom GPT'],
+    description:
+      'Built a Custom GPT that generates hyper-personalised LinkedIn connection notes under 300 characters from just a name, title, and company. Achieves 5× higher acceptance rate vs generic templates — used in live outbound prospecting daily.',
+    stack: ['OpenAI API', 'Custom GPT', 'Prompt Engineering'],
+    results: ['5× higher acceptance rate', 'Used in live outbound daily'],
+    banner: '/LinkedinNoteGen.png',
+    link: 'https://github.com/01Anshuman',
+    linkLabel: '🔗 View on GitHub',
+  },
+  {
+    title: 'Email Triage Automation — n8n',
+    emoji: null,
+    placeholderLabel: 'n8n Flow',
+    badges: ['Automation', 'n8n', 'Productivity'],
+    description:
+      'Built an n8n workflow that automatically classifies incoming emails as hot reply, follow-up needed, or not relevant — routes to the right folder and creates CRM tasks automatically. Reduced daily email triage from 30 minutes to under 4 minutes.',
+    stack: ['n8n', 'Zoho CRM', 'Email API', 'Automation'],
+    results: ['30 min → 4 min daily', 'Integrated with Zoho CRM'],
+    banner: '/Emailn8n.png',
+    link: 'https://github.com/01Anshuman',
+    linkLabel: '🔗 View on GitHub',
+  },
 ];
 
 export const METRICS = [
@@ -173,7 +199,7 @@ export const MEDIA = [
     icon: '🎙️',
     title: "Achiever's Ki Duniya",
     subtitle: 'Podcast',
-    stats: ['25+ Episodes', '20+ Guests', '5K+ Listeners'],
+    stats: ['25+ Episodes', '20+ Guests', 'Growing'],
     description:
       'Interviewing founders, developers, and career builders on technology and growth.',
     link: 'https://www.youtube.com/@acheiverskiduniya5891',
@@ -205,13 +231,6 @@ export const TESTIMONIALS = [
     name: 'Ashim Sarkar',
     role: 'YouTuber & Mentor, Ashim Talk Tide',
     initials: 'AS',
-  },
-  {
-    quote:
-      'Building my own portfolio with Anshuman\'s approach taught me how powerful a well-crafted digital presence can be. The results speak for themselves.',
-    name: 'Anshuman Mishra',
-    role: 'Full-Stack Developer & Digital Consultant',
-    initials: 'AM',
   },
 ];
 

@@ -75,7 +75,7 @@ export default function Hero() {
 
           <motion.p custom={2} variants={fadeUp} initial="hidden" animate="show"
             style={{ fontFamily: 'Syne, sans-serif', fontSize: '1.05rem', color: '#8892a4', marginBottom: '1.8rem', letterSpacing: '0.02em' }}>
-            Full-Stack Dev · AI Automation · Digital Growth
+            SDR · Full-Stack Builder · AI Automation · Podcast Host
           </motion.p>
 
           {/* Terminal */}
@@ -92,7 +92,7 @@ export default function Hero() {
 
           <motion.p custom={4} variants={fadeUp} initial="hidden" animate="show"
             style={{ color: '#8892a4', fontSize: '1rem', lineHeight: 1.75, marginBottom: '2.2rem', maxWidth: '520px' }}>
-            I&apos;m Anshuman — a developer and digital consultant from Bengaluru. I build fast websites, intelligent automation systems, and content strategies that help businesses scale without burning out their teams.
+            I&apos;m Anshuman — an SDR selling B2B SaaS to the US market by day, a full-stack developer and AI tool builder on weekends, and a podcast host at night. I build things that solve real problems and share everything I learn in public.
           </motion.p>
 
           <motion.div custom={5} variants={fadeUp} initial="hidden" animate="show"

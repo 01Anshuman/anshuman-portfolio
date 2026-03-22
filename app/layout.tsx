@@ -2,13 +2,13 @@ import type { Metadata } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'Anshuman Mishra — Full-Stack Developer & Digital Consultant',
-  description: 'Building scalable web applications, AI automation systems, and digital growth strategies. Based in Bengaluru, India.',
-  keywords: ['Full Stack Developer Bengaluru', 'AI Automation', 'Next.js Developer India', 'Digital Marketing Freelancer'],
+  title: 'Anshuman Mishra — SDR · Builder · Communicator',
+  description: 'Anshuman Mishra — B2B SaaS SDR running US-market outbound, full-stack developer building AI tools and automations, and podcast host. Based in Bengaluru, India.',
+  keywords: ['Full Stack Developer Bengaluru', 'AI Automation', 'Next.js Developer India', 'B2B SaaS SDR', 'Digital Marketing'],
   openGraph: {
-    title: 'Anshuman Mishra — Developer & Digital Consultant',
-    description: 'Web Dev · AI Automation · Digital Marketing from Bengaluru.',
-    url: 'https://anshumanmishra.vercel.app',
+    title: 'Anshuman Mishra — SDR · Builder · Communicator',
+    description: 'Anshuman Mishra — B2B SaaS SDR running US-market outbound, full-stack developer building AI tools and automations, and podcast host. Based in Bengaluru, India.',
+    url: 'https://anshuman01-portfolio.vercel.app/',
     type: 'website',
   },
 };

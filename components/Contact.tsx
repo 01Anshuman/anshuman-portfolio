@@ -4,12 +4,14 @@ import { useRef, useState } from 'react';
 import { CONTACT_INFO } from '@/lib/constants';
 import { Mail, Linkedin, MessageCircle, Youtube, Github } from 'lucide-react';
 
+type FormState = 'idle' | 'loading' | 'success' | 'error';
+
 export default function Contact() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: '-80px' });
   const [form, setForm] = useState({ name: '', email: '', service: '', message: '' });
   const [errors, setErrors] = useState<Record<string, string>>({});
-  const [submitted, setSubmitted] = useState(false);
+  const [formState, setFormState] = useState<FormState>('idle');
 
   const validate = () => {
     const e: Record<string, string> = {};
@@ -21,11 +23,31 @@ export default function Contact() {
     return e;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const errs = validate();
     if (Object.keys(errs).length) { setErrors(errs); return; }
-    setSubmitted(true);
+
+    setFormState('loading');
+
+    try {
+      // Sign up at formspree.io, create a form, replace YOUR_FORM_ID with your actual ID
+      const res = await fetch('https://formspree.io/f/YOUR_FORM_ID', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify(form),
+      });
+
+      if (res.ok) {
+        setFormState('success');
+        setForm({ name: '', email: '', service: '', message: '' });
+        setErrors({});
+      } else {
+        setFormState('error');
+      }
+    } catch {
+      setFormState('error');
+    }
   };
 
   const inputStyle = (field: string) => ({
@@ -94,7 +116,7 @@ export default function Contact() {
                   onMouseEnter={e => { e.currentTarget.style.borderColor = 'rgba(0,245,160,0.3)'; e.currentTarget.style.color = '#00f5a0'; }}
                   onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(255,255,255,0.08)'; e.currentTarget.style.color = '#8892a4'; }}
                 >
-                  <span style={{ color: '#00f5a0' }}>{chip.icon}</span>
+                  <span style={{ color: '#00f5a0', flexShrink: 0 }}>{chip.icon}</span>
                   {chip.label}
                 </a>
               ))}
@@ -103,17 +125,30 @@ export default function Contact() {
 
           {/* Right: Form */}
           <motion.div initial={{ opacity: 0, x: 30 }} animate={inView ? { opacity: 1, x: 0 } : {}} transition={{ duration: 0.6, delay: 0.1 }}>
-            {submitted ? (
+            {formState === 'success' ? (
               <div style={{
                 background: 'rgba(0,245,160,0.06)', border: '1px solid rgba(0,245,160,0.2)',
                 borderRadius: '16px', padding: '3rem', textAlign: 'center',
               }}>
                 <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>✅</div>
                 <h3 style={{ fontFamily: 'Syne, sans-serif', fontWeight: 800, fontSize: '1.4rem', color: '#f0f0f0', marginBottom: '0.5rem' }}>Message sent!</h3>
-                <p style={{ color: '#8892a4' }}>I&apos;ll get back to you within 24 hours.</p>
+                <p style={{ color: '#8892a4' }}>Thanks! I&apos;ll get back to you within 24 hours.</p>
               </div>
             ) : (
               <form onSubmit={handleSubmit} noValidate style={{ display: 'flex', flexDirection: 'column', gap: '1.2rem' }}>
+                {formState === 'error' && (
+                  <div style={{
+                    padding: '0.9rem 1rem', borderRadius: '8px',
+                    background: 'rgba(255,107,107,0.08)', border: '1px solid rgba(255,107,107,0.25)',
+                    color: '#ff6b6b', fontSize: '0.875rem',
+                  }}>
+                    Something went wrong. Email me directly at{' '}
+                    <a href="mailto:manshumanmishra221122@gmail.com" style={{ color: '#ff6b6b', fontWeight: 600 }}>
+                      manshumanmishra221122@gmail.com
+                    </a>
+                  </div>
+                )}
+
                 <div>
                   <label htmlFor="name" style={{ display: 'block', fontSize: '0.82rem', color: '#8892a4', marginBottom: '0.4rem' }}>Name *</label>
                   <input id="name" type="text" placeholder="Your name" value={form.name}
@@ -164,17 +199,21 @@ export default function Contact() {
                   {errors.message && <span style={{ fontSize: '0.75rem', color: '#ff6b6b' }}>{errors.message}</span>}
                 </div>
 
-                <button type="submit" style={{
-                  padding: '0.85rem 2rem', borderRadius: '8px',
-                  background: 'linear-gradient(135deg, #00f5a0, #00b4ff)',
-                  border: 'none', color: '#08090e', fontWeight: 700,
-                  fontSize: '0.95rem', fontFamily: 'Syne, sans-serif',
-                  cursor: 'pointer', transition: 'opacity 0.2s, transform 0.2s',
-                }}
-                  onMouseEnter={e => { e.currentTarget.style.opacity = '0.88'; e.currentTarget.style.transform = 'translateY(-2px)'; }}
+                <button
+                  type="submit"
+                  disabled={formState === 'loading'}
+                  style={{
+                    padding: '0.85rem 2rem', borderRadius: '8px',
+                    background: formState === 'loading' ? 'rgba(0,245,160,0.4)' : 'linear-gradient(135deg, #00f5a0, #00b4ff)',
+                    border: 'none', color: '#08090e', fontWeight: 700,
+                    fontSize: '0.95rem', fontFamily: 'Syne, sans-serif',
+                    cursor: formState === 'loading' ? 'not-allowed' : 'pointer',
+                    transition: 'opacity 0.2s, transform 0.2s',
+                  }}
+                  onMouseEnter={e => { if (formState !== 'loading') { e.currentTarget.style.opacity = '0.88'; e.currentTarget.style.transform = 'translateY(-2px)'; } }}
                   onMouseLeave={e => { e.currentTarget.style.opacity = '1'; e.currentTarget.style.transform = 'translateY(0)'; }}
                 >
-                  Send Message →
+                  {formState === 'loading' ? 'Sending...' : 'Send Message →'}
                 </button>
               </form>
             )}

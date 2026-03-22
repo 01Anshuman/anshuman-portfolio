@@ -1,27 +1,15 @@
 'use client';
-import { motion, useInView, useMotionValue, useTransform, animate } from 'framer-motion';
-import { useRef, useEffect } from 'react';
-import { METRICS } from '@/lib/constants';
+import { motion, useInView } from 'framer-motion';
+import { useRef } from 'react';
 
-function CountUp({ target, suffix }: { target: number; suffix: string }) {
-  const ref = useRef<HTMLSpanElement>(null);
-  const inView = useInView(ref, { once: true });
-  const count = useMotionValue(0);
-  const rounded = useTransform(count, (v) => Math.round(v));
-
-  useEffect(() => {
-    if (inView) {
-      const ctrl = animate(count, target, { duration: 2, ease: 'easeOut' });
-      return ctrl.stop;
-    }
-  }, [inView, count, target]);
-
-  return (
-    <span ref={ref} style={{ display: 'inline' }}>
-      <motion.span>{rounded}</motion.span>{suffix}
-    </span>
-  );
-}
+const STATIC_METRICS = [
+  { value: '3+',   label: 'Projects Delivered' },
+  { value: '20+',  label: 'Hours Saved Per Week' },
+  { value: '2',    label: 'Podcasts Running' },
+  { value: '5+',   label: 'Automation Systems Built' },
+  { value: '50+',  label: 'Leads Generated via Outbound' },
+  { value: '100%', label: 'Client Satisfaction' },
+];
 
 export default function Metrics() {
   const ref = useRef(null);
@@ -43,7 +31,7 @@ export default function Metrics() {
         </motion.div>
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1.5rem' }} className="metrics-grid">
-          {METRICS.map((m, i) => (
+          {STATIC_METRICS.map((m, i) => (
             <motion.div
               key={m.label}
               initial={{ opacity: 0, y: 30 }}
@@ -67,7 +55,7 @@ export default function Metrics() {
                 WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent',
                 marginBottom: '0.5rem',
               }}>
-                <CountUp target={m.value} suffix={m.suffix} />
+                {m.value}
               </div>
               <div style={{ color: '#8892a4', fontSize: '0.875rem', fontWeight: 400 }}>{m.label}</div>
             </motion.div>
