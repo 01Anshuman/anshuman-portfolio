@@ -1,26 +1,195 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500&display=swap');
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg-primary: #08090e;
+  --bg-secondary: #0f1117;
+  --accent-green: #00f5a0;
+  --accent-blue: #00b4ff;
+  --accent-coral: #ff6b6b;
+  --text-primary: #f0f0f0;
+  --text-muted: #8892a4;
+  --border-subtle: rgba(255,255,255,0.07);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+html { scroll-behavior: smooth; }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 400;
+  overflow-x: hidden;
 }
+
+.font-syne { font-family: 'Syne', sans-serif; }
+.font-dm { font-family: 'DM Sans', sans-serif; }
+
+/* Dot grid */
+.dot-grid {
+  background-image: radial-gradient(rgba(255,255,255,0.055) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+/* Grain overlay */
+.grain::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: 0.03;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* Glow blobs */
+@keyframes drift {
+  0%   { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(40px, 25px) scale(1.1); }
+}
+.glow-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  pointer-events: none;
+  animation: drift 14s ease-in-out infinite alternate;
+}
+
+/* Tech ticker */
+@keyframes ticker {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.ticker-track {
+  animation: ticker 35s linear infinite;
+  display: flex;
+  width: max-content;
+}
+
+/* Terminal cursor */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+.cursor-blink { animation: blink 1s step-end infinite; }
+
+/* Card hover */
+.card-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card-hover:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 64px rgba(0,245,160,0.1);
+}
+
+/* Service card top border sweep */
+.service-card { position: relative; overflow: hidden; }
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  height: 2px; width: 0;
+  background: linear-gradient(90deg, #00f5a0, #00b4ff);
+  transition: width 0.45s ease;
+}
+.service-card:hover::before { width: 100%; }
+
+/* Nav shrink on scroll */
+.nav-scrolled {
+  padding-top: 0.5rem !important;
+  padding-bottom: 0.5rem !important;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--bg-primary); }
+::-webkit-scrollbar-thumb { background: rgba(0,245,160,0.25); border-radius: 3px; }
+
+/* Focus */
+:focus-visible {
+  outline: 2px solid #00f5a0;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+  .ticker-track { animation: none; }
+}
+
+/* =====================
+   RESPONSIVE OVERRIDES
+   ===================== */
+
+/* Reduce section vertical padding on mobile */
+@media (max-width: 768px) {
+  section { padding-top: 4rem !important; padding-bottom: 4rem !important; }
+}
+
+/* Auto-fit grids: force single column on small mobile */
+@media (max-width: 480px) {
+  /* Tech stack, services, projects, media, testimonials, metrics */
+  [style*="minmax(300px"] { grid-template-columns: 1fr !important; }
+  [style*="minmax(280px"] { grid-template-columns: 1fr !important; }
+  [style*="minmax(320px"] { grid-template-columns: 1fr !important; }
+  [style*="minmax(200px"] { grid-template-columns: 1fr 1fr !important; }
+}
+
+/* Tablet: 2-col for cards */
+@media (min-width: 481px) and (max-width: 900px) {
+  [style*="minmax(300px"] { grid-template-columns: repeat(2, 1fr) !important; }
+  [style*="minmax(280px"] { grid-template-columns: repeat(2, 1fr) !important; }
+  [style*="minmax(320px"] { grid-template-columns: repeat(2, 1fr) !important; }
+  [style*="minmax(200px"] { grid-template-columns: repeat(3, 1fr) !important; }
+}
+
+/* Contact chips: allow wrapping on small screens */
+@media (max-width: 600px) {
+  .contact-chip { font-size: 0.78rem !important; padding: 0.5rem 0.75rem !important; }
+}
+
+/* Nav: tighter padding on mobile */
+@media (max-width: 480px) {
+  nav > div { padding: 0 1rem !important; }
+}
+
+/* Hero section padding on mobile */
+@media (max-width: 768px) {
+  #about { padding-top: 5rem !important; padding-bottom: 3rem !important; }
+  #about .hero-grid { padding: 0 1.25rem !important; }
+}
+
+/* Process grid: tablet 2-col */
+@media (min-width: 481px) and (max-width: 900px) {
+  .process-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 2rem !important; }
+  .process-line { display: none !important; }
+  .process-grid > div { text-align: center !important; }
+}
+
+/* Footer: tablet stacks to 2-col then 1-col */
+@media (min-width: 481px) and (max-width: 900px) {
+  .footer-grid { grid-template-columns: 1fr 1fr !important; }
+  .footer-grid > nav { grid-column: 1 / -1; }
+  .footer-grid > div:last-child { text-align: left !important; }
+}
+
+/* Metrics: 2-col on mobile */
+@media (max-width: 480px) {
+  [style*="minmax(200px"] { grid-template-columns: repeat(2, 1fr) !important; }
+}
+
+/* General container padding on small mobile */
+@media (max-width: 480px) {
+  [style*="padding: '0 2rem'"],
+  [style*='padding: "0 2rem"'] { padding: 0 1.25rem !important; }
+}
+
+/* Prevent horizontal overflow everywhere */
+img { max-width: 100%; height: auto; }
+* { min-width: 0; }
