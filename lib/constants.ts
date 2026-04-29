@@ -204,6 +204,7 @@ export const MEDIA = [
       'Interviewing founders, developers, and career builders on technology and growth.',
     link: 'https://www.youtube.com/@acheiverskiduniya5891',
     linkLabel: '@acheiverskiduniya5891',
+    banner: '/akd_banner.jpg',
   },
   {
     icon: '📈',
@@ -214,6 +215,7 @@ export const MEDIA = [
       'Practical content on web development, digital growth, and building a personal brand as a developer.',
     link: 'https://www.youtube.com/@growwithanshuman9445',
     linkLabel: '@growwithanshuman9445',
+    banner: '/gwa_banner.jpg',
   },
 ];
 

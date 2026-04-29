@@ -2,18 +2,47 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 
-const outboundMotion = [
-  '100+ touchpoints per week (cold calls, LinkedIn, email)',
-  'GPT-powered outreach — 5× higher connection acceptance rate',
-  'ICP sourcing via ZoomInfo + LinkedIn Sales Navigator',
-  'BANT qualification + full pipeline management in Zoho CRM',
-];
-
-const toolsDaily = [
-  'ZoomInfo · LinkedIn Sales Navigator',
-  'Zoho CRM · Otter.ai for call analysis',
-  'Custom GPTs for personalisation at scale',
-  'n8n for sales workflow automation',
+const roles = [
+  {
+    company: 'Middleware',
+    title: 'Senior SDR',
+    period: 'Current',
+    accent: '#00b4ff',
+    description:
+      'Driving enterprise outbound for a developer-first observability platform — targeting Engineering Managers, VPs of Engineering, and CTOs at high-growth SaaS and tech companies.',
+    outboundMotion: [
+      'Multi-channel outbound: cold calls, LinkedIn, personalised email',
+      'ICP research using LinkedIn Sales Navigator + intent signals',
+      'AI-assisted personalisation at scale with Custom GPTs',
+      'Full pipeline ownership from prospecting to qualified handoff',
+    ],
+    tools: [
+      'LinkedIn Sales Navigator · Apollo.io',
+      'Custom GPTs for hyper-personalisation',
+      'n8n for outbound workflow automation',
+      'CRM pipeline management & reporting',
+    ],
+  },
+  {
+    company: 'FireFlink',
+    title: 'SDR — US Market',
+    period: 'Previous',
+    accent: '#00f5a0',
+    description:
+      'Ran full-cycle B2B SaaS outbound into the US market — targeting QA Directors, CTOs, VPs of Engineering, and Founders at US-headquartered SaaS startups and mid-market companies.',
+    outboundMotion: [
+      '100+ touchpoints per week (cold calls, LinkedIn, email)',
+      'GPT-powered outreach — 5× higher connection acceptance rate',
+      'ICP sourcing via ZoomInfo + LinkedIn Sales Navigator',
+      'BANT qualification + full pipeline management in Zoho CRM',
+    ],
+    tools: [
+      'ZoomInfo · LinkedIn Sales Navigator',
+      'Zoho CRM · Otter.ai for call analysis',
+      'Custom GPTs for personalisation at scale',
+      'n8n for sales workflow automation',
+    ],
+  },
 ];
 
 export default function SDR() {
@@ -34,73 +63,103 @@ export default function SDR() {
           <h2 style={{ fontFamily: 'Syne, sans-serif', fontWeight: 800, fontSize: 'clamp(2rem, 4vw, 3rem)', color: '#f0f0f0' }}>
             The Sales Side
           </h2>
+          <p style={{ color: '#8892a4', fontSize: '1rem', marginTop: '0.75rem' }}>
+            B2B SaaS outbound across two high-growth companies — from SDR to Senior SDR.
+          </p>
         </motion.div>
 
-        {/* Main card */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          style={{
-            background: 'rgba(15,17,23,0.8)',
-            border: '1px solid rgba(255,255,255,0.07)',
-            borderRadius: '20px',
-            padding: '2.5rem',
-            backdropFilter: 'blur(10px)',
-            position: 'relative',
-            overflow: 'hidden',
-          }}
+        {/* Role cards */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+          {roles.map((role, i) => (
+            <motion.div
+              key={role.company}
+              initial={{ opacity: 0, y: 30 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: i * 0.15 }}
+              style={{
+                background: 'rgba(15,17,23,0.8)',
+                border: '1px solid rgba(255,255,255,0.07)',
+                borderRadius: '20px',
+                padding: '2.5rem',
+                backdropFilter: 'blur(10px)',
+                position: 'relative',
+                overflow: 'hidden',
+              }}
+            >
+              {/* Accent top border */}
+              <div style={{
+                position: 'absolute', top: 0, left: 0, right: 0, height: '2px',
+                background: `linear-gradient(90deg, ${role.accent}, transparent)`,
+              }} />
+
+              {/* Role header */}
+              <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1rem', flexWrap: 'wrap' }}>
+                <h3 style={{ fontFamily: 'Syne, sans-serif', fontWeight: 800, fontSize: '1.25rem', color: '#f0f0f0', margin: 0 }}>
+                  {role.title}
+                </h3>
+                <span style={{
+                  fontSize: '0.8rem', fontWeight: 700, color: role.accent,
+                  padding: '0.2rem 0.7rem', borderRadius: '100px',
+                  background: `${role.accent}18`, border: `1px solid ${role.accent}40`,
+                }}>
+                  {role.company}
+                </span>
+                <span style={{
+                  fontSize: '0.75rem', color: role.period === 'Current' ? '#00f5a0' : '#8892a4',
+                  padding: '0.15rem 0.6rem', borderRadius: '100px',
+                  background: role.period === 'Current' ? 'rgba(0,245,160,0.08)' : 'rgba(255,255,255,0.04)',
+                  border: `1px solid ${role.period === 'Current' ? 'rgba(0,245,160,0.25)' : 'rgba(255,255,255,0.08)'}`,
+                }}>
+                  {role.period}
+                </span>
+              </div>
+
+              <p style={{ color: '#c8d0dc', fontSize: '0.95rem', lineHeight: 1.75, marginBottom: '2rem', maxWidth: '820px' }}>
+                {role.description}
+              </p>
+
+              {/* Two-column grid */}
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem' }} className="sdr-cols">
+                <div>
+                  <h4 style={{ fontFamily: 'Syne, sans-serif', fontWeight: 700, fontSize: '0.9rem', color: role.accent, marginBottom: '1rem', letterSpacing: '0.04em' }}>
+                    Outbound Motion
+                  </h4>
+                  <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.7rem' }}>
+                    {role.outboundMotion.map((item) => (
+                      <li key={item} style={{ display: 'flex', gap: '0.6rem', alignItems: 'flex-start', color: '#8892a4', fontSize: '0.875rem', lineHeight: 1.6 }}>
+                        <span style={{ color: role.accent, flexShrink: 0, marginTop: '0.1rem' }}>→</span>
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div>
+                  <h4 style={{ fontFamily: 'Syne, sans-serif', fontWeight: 700, fontSize: '0.9rem', color: '#00b4ff', marginBottom: '1rem', letterSpacing: '0.04em' }}>
+                    Tools Used
+                  </h4>
+                  <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.7rem' }}>
+                    {role.tools.map((item) => (
+                      <li key={item} style={{ display: 'flex', gap: '0.6rem', alignItems: 'flex-start', color: '#8892a4', fontSize: '0.875rem', lineHeight: 1.6 }}>
+                        <span style={{ color: '#00b4ff', flexShrink: 0, marginTop: '0.1rem' }}>→</span>
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Bottom note */}
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={inView ? { opacity: 1 } : {}}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          style={{ color: '#8892a4', fontSize: '0.82rem', fontStyle: 'italic', marginTop: '1.5rem', textAlign: 'center' }}
         >
-          {/* Accent top border */}
-          <div style={{
-            position: 'absolute', top: 0, left: 0, right: 0, height: '2px',
-            background: 'linear-gradient(90deg, #00f5a0, #00b4ff)',
-          }} />
-
-          {/* Top paragraph */}
-          <p style={{ color: '#c8d0dc', fontSize: '1rem', lineHeight: 1.75, marginBottom: '2rem', maxWidth: '820px' }}>
-            I run full-cycle B2B SaaS outbound into the US market at{' '}
-            <span style={{ color: '#00f5a0', fontWeight: 600 }}>FireFlink</span> — targeting QA Directors, CTOs, VPs of Engineering, and Founders at US-headquartered SaaS startups and mid-market companies.
-          </p>
-
-          {/* Two-column grid */}
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem', marginBottom: '2rem' }} className="sdr-cols">
-            {/* Left */}
-            <div>
-              <h3 style={{ fontFamily: 'Syne, sans-serif', fontWeight: 700, fontSize: '1rem', color: '#00f5a0', marginBottom: '1rem', letterSpacing: '0.04em' }}>
-                My Outbound Motion
-              </h3>
-              <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.7rem' }}>
-                {outboundMotion.map((item) => (
-                  <li key={item} style={{ display: 'flex', gap: '0.6rem', alignItems: 'flex-start', color: '#8892a4', fontSize: '0.9rem', lineHeight: 1.6 }}>
-                    <span style={{ color: '#00f5a0', flexShrink: 0, marginTop: '0.1rem' }}>→</span>
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Right */}
-            <div>
-              <h3 style={{ fontFamily: 'Syne, sans-serif', fontWeight: 700, fontSize: '1rem', color: '#00b4ff', marginBottom: '1rem', letterSpacing: '0.04em' }}>
-                Tools I Use Daily
-              </h3>
-              <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.7rem' }}>
-                {toolsDaily.map((item) => (
-                  <li key={item} style={{ display: 'flex', gap: '0.6rem', alignItems: 'flex-start', color: '#8892a4', fontSize: '0.9rem', lineHeight: 1.6 }}>
-                    <span style={{ color: '#00b4ff', flexShrink: 0, marginTop: '0.1rem' }}>→</span>
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-
-          {/* Bottom muted note */}
-          <p style={{ color: '#8892a4', fontSize: '0.82rem', fontStyle: 'italic', borderTop: '1px solid rgba(255,255,255,0.06)', paddingTop: '1.2rem' }}>
-            Building the AI-powered outbound system that makes me 3× more effective per hour than a traditional SDR.
-          </p>
-        </motion.div>
+          Building the AI-powered outbound system that makes me 3× more effective per hour than a traditional SDR.
+        </motion.p>
       </div>
 
       <style>{`
