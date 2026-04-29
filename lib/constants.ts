@@ -199,23 +199,25 @@ export const MEDIA = [
     icon: '🎙️',
     title: "Achiever's Ki Duniya",
     subtitle: 'Podcast',
-    stats: ['25+ Episodes', '20+ Guests', 'Growing'],
+    stats: ['320+ Subscribers', 'Co-hosted', 'Tier 2/3 India'],
     description:
-      'Interviewing founders, developers, and career builders on technology and growth.',
+      "India ka podcast for those who dared to think differently. Hosted by Anshuman Mishra & Sara Chavhan — two college kids from Tier 2/3 India who got tired of hearing the same \"get a placement, play it safe\" advice. We sit down with first-gen entrepreneurs, college founders, and people from small cities who built something real — without the IIT pedigree, without the metro privilege, without the safety net. Raw conversations. Real struggles. No filters. 🔥",
     link: 'https://www.youtube.com/@acheiverskiduniya5891',
     linkLabel: '@acheiverskiduniya5891',
-    banner: '/akd_banner.jpg',
+    banner: '/akd_coverimage.png',
   },
   {
     icon: '📈',
     title: 'Grow With Anshuman',
-    subtitle: 'Podcast & Channel',
-    stats: ['Growing Fast', 'Dev & Growth Content', 'Real Strategies'],
+    subtitle: 'YouTube Channel',
+    stats: ['1.72K Subscribers', '140 Videos', 'Every Weekend'],
     description:
-      'Practical content on web development, digital growth, and building a personal brand as a developer.',
+      'I help you communicate clearly — at work, in conversations, and in life. Most people don\'t need more English lessons. They need to know exactly what\'s holding them back. That\'s what I diagnose. Spoken English · Communication Confidence · Self-Expression. New videos every Thursday & Sunday.',
     link: 'https://www.youtube.com/@growwithanshuman9445',
     linkLabel: '@growwithanshuman9445',
-    banner: '/gwa_banner.jpg',
+    banner: '/gwa_coverimage.png',
+    ctaLink: 'https://growwithanshuman.netlify.app',
+    ctaLabel: '1:1 Diagnosis →',
   },
 ];
 
