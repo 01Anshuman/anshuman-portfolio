@@ -12,7 +12,7 @@ export default function Process() {
       <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 2rem' }}>
         <motion.div initial={{ opacity: 0, y: 24 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6 }}
           style={{ marginBottom: '4rem' }}>
-          <span style={{ fontFamily: 'monospace', fontSize: '0.85rem', color: '#00f5a0', letterSpacing: '0.1em', display: 'block', marginBottom: '0.75rem' }}>
+          <span style={{ fontFamily: 'monospace', fontSize: '0.85rem', color: '#e2e8f0', letterSpacing: '0.1em', display: 'block', marginBottom: '0.75rem' }}>
             &lt; PROCESS /&gt;
           </span>
           <h2 style={{ fontFamily: 'Syne, sans-serif', fontWeight: 800, fontSize: 'clamp(2rem, 4vw, 3rem)', color: '#f0f0f0' }}>
@@ -25,7 +25,7 @@ export default function Process() {
           {/* Connecting line */}
           <div style={{
             position: 'absolute', top: '2.5rem', left: '12.5%', right: '12.5%', height: '1px',
-            background: 'linear-gradient(90deg, #00f5a0, #00b4ff, #ff6b6b, #a78bfa)',
+            background: 'linear-gradient(90deg, #e2e8f0, #00b4ff, #ff6b6b, #a78bfa)',
             opacity: 0.3,
           }} className="process-line" />
 
@@ -35,39 +35,72 @@ export default function Process() {
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: i * 0.15 }}
-              style={{ padding: '0 1.5rem', textAlign: 'center', position: 'relative' }}
+              style={{ padding: '0 1.5rem', position: 'relative' }}
+              className="process-step"
             >
               {/* Step circle */}
               <div style={{
                 width: '48px', height: '48px', borderRadius: '50%',
-                background: 'linear-gradient(135deg, #00f5a0, #00b4ff)',
+                background: 'linear-gradient(135deg, #ffffff, #00b4ff)',
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
                 margin: '0 auto 1.5rem',
                 fontFamily: 'Syne, sans-serif', fontWeight: 800, fontSize: '0.85rem', color: '#08090e',
                 position: 'relative', zIndex: 1,
-              }}>{step.num}</div>
+              }} className="process-circle">{step.num}</div>
 
-              <h3 style={{ fontFamily: 'Syne, sans-serif', fontWeight: 800, fontSize: '1.1rem', color: '#f0f0f0', marginBottom: '0.6rem' }}>
-                {step.title}
-              </h3>
-              <p style={{ color: '#8892a4', fontSize: '0.875rem', lineHeight: 1.65 }}>
-                {step.desc}
-              </p>
+              <div className="process-content">
+                <h3 style={{ fontFamily: 'Syne, sans-serif', fontWeight: 800, fontSize: '1.1rem', color: '#f0f0f0', marginBottom: '0.6rem' }}>
+                  {step.title}
+                </h3>
+                <p style={{ color: '#8892a4', fontSize: '0.875rem', lineHeight: 1.65 }}>
+                  {step.desc}
+                </p>
+              </div>
             </motion.div>
           ))}
         </div>
       </div>
 
       <style>{`
+        .process-step {
+          text-align: center;
+        }
+        .process-content {
+          text-align: center;
+        }
+        
         @media (max-width: 480px) {
-          .process-grid { grid-template-columns: 1fr !important; gap: 2rem !important; }
-          .process-line { display: none !important; }
-          .process-grid > div { text-align: left !important; display: flex; gap: 1rem; align-items: flex-start; }
-          .process-grid > div > div:first-child { flex-shrink: 0; margin: 0 !important; }
+          .process-grid { 
+            grid-template-columns: 1fr !important; 
+            gap: 2rem !important; 
+          }
+          .process-line { 
+            display: none !important; 
+          }
+          .process-step { 
+            display: flex !important; 
+            gap: 1rem !important; 
+            align-items: flex-start !important;
+            padding: 0 !important;
+            text-align: left !important;
+          }
+          .process-circle { 
+            flex-shrink: 0 !important; 
+            margin: 0 !important; 
+          }
+          .process-content {
+            text-align: left !important;
+            flex: 1 !important;
+          }
         }
         @media (min-width: 481px) and (max-width: 900px) {
-          .process-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 2.5rem !important; }
-          .process-line { display: none !important; }
+          .process-grid { 
+            grid-template-columns: repeat(2, 1fr) !important; 
+            gap: 2.5rem !important; 
+          }
+          .process-line { 
+            display: none !important; 
+          }
         }
       `}</style>
     </section>

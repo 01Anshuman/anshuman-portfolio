@@ -9,12 +9,12 @@ export default function Testimonials() {
 
   return (
     <section ref={ref} style={{ padding: '7rem 0', background: 'var(--bg-secondary)', position: 'relative', overflow: 'hidden' }}>
-      <div className="glow-blob" style={{ width: 400, height: 400, background: 'rgba(0,245,160,0.06)', top: '20%', left: '-100px' }} />
+      <div className="glow-blob" style={{ width: 400, height: 400, background: 'rgba(226,232,240,0.05)', top: '20%', left: '-100px' }} />
 
       <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 2rem' }}>
         <motion.div initial={{ opacity: 0, y: 24 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6 }}
           style={{ textAlign: 'center', marginBottom: '3.5rem' }}>
-          <span style={{ fontFamily: 'monospace', fontSize: '0.85rem', color: '#00f5a0', letterSpacing: '0.1em', display: 'block', marginBottom: '0.75rem' }}>
+          <span style={{ fontFamily: 'monospace', fontSize: '0.85rem', color: '#e2e8f0', letterSpacing: '0.1em', display: 'block', marginBottom: '0.75rem' }}>
             &lt; TESTIMONIALS /&gt;
           </span>
           <h2 style={{ fontFamily: 'Syne, sans-serif', fontWeight: 800, fontSize: 'clamp(2rem, 4vw, 3rem)', color: '#f0f0f0' }}>
@@ -43,7 +43,7 @@ export default function Testimonials() {
               {/* Quote mark */}
               <div style={{
                 position: 'absolute', top: '1.2rem', right: '1.5rem',
-                fontFamily: 'Georgia, serif', fontSize: '4rem', color: 'rgba(0,245,160,0.1)',
+                fontFamily: 'Georgia, serif', fontSize: '4rem', color: 'rgba(226,232,240,0.07)',
                 lineHeight: 1, userSelect: 'none',
               }}>&ldquo;</div>
 
@@ -54,7 +54,7 @@ export default function Testimonials() {
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
                 <div style={{
                   width: '40px', height: '40px', borderRadius: '50%',
-                  background: 'linear-gradient(135deg, #00f5a0, #00b4ff)',
+                  background: 'linear-gradient(135deg, #ffffff, #00b4ff)',
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
                   fontFamily: 'Syne, sans-serif', fontWeight: 800, fontSize: '0.8rem', color: '#08090e',
                   flexShrink: 0,

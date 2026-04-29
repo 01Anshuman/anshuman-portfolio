@@ -17,12 +17,12 @@ export default function Metrics() {
 
   return (
     <section id="results" ref={ref} style={{ padding: '7rem 0', background: 'var(--bg-primary)', position: 'relative', overflow: 'hidden' }}>
-      <div className="glow-blob" style={{ width: 500, height: 300, background: 'rgba(0,245,160,0.06)', top: '50%', left: '50%', transform: 'translate(-50%,-50%)' }} />
+      <div className="glow-blob" style={{ width: 500, height: 300, background: 'rgba(226,232,240,0.05)', top: '50%', left: '50%', transform: 'translate(-50%,-50%)' }} />
 
       <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 2rem' }}>
         <motion.div initial={{ opacity: 0, y: 24 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6 }}
           style={{ textAlign: 'center', marginBottom: '4rem' }}>
-          <span style={{ fontFamily: 'monospace', fontSize: '0.85rem', color: '#00f5a0', letterSpacing: '0.1em', display: 'block', marginBottom: '0.75rem' }}>
+          <span style={{ fontFamily: 'monospace', fontSize: '0.85rem', color: '#e2e8f0', letterSpacing: '0.1em', display: 'block', marginBottom: '0.75rem' }}>
             &lt; RESULTS /&gt;
           </span>
           <h2 style={{ fontFamily: 'Syne, sans-serif', fontWeight: 800, fontSize: 'clamp(2rem, 4vw, 3rem)', color: '#f0f0f0' }}>
@@ -46,12 +46,12 @@ export default function Metrics() {
                 backdropFilter: 'blur(10px)',
                 transition: 'border-color 0.3s',
               }}
-              whileHover={{ borderColor: 'rgba(0,245,160,0.3)' }}
+              whileHover={{ borderColor: 'rgba(226,232,240,0.15)' }}
             >
               <div style={{
                 fontFamily: 'Syne, sans-serif', fontWeight: 800,
                 fontSize: 'clamp(2.2rem, 4vw, 3rem)',
-                background: 'linear-gradient(135deg, #00f5a0, #00b4ff)',
+                background: 'linear-gradient(135deg, #ffffff, #00b4ff)',
                 WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent',
                 marginBottom: '0.5rem',
               }}>

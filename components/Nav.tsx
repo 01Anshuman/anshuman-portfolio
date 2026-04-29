@@ -68,9 +68,9 @@ export default function Nav() {
             className="cta-nav hidden-mobile"
             style={{
               padding: '0.5rem 1.2rem',
-              border: '1px solid #00f5a0',
+              border: '1px solid #e2e8f0',
               borderRadius: '6px',
-              color: '#00f5a0',
+              color: '#e2e8f0',
               textDecoration: 'none',
               fontSize: '0.875rem',
               fontWeight: 500,
@@ -78,12 +78,12 @@ export default function Nav() {
               fontFamily: 'DM Sans, sans-serif',
             }}
             onMouseEnter={e => {
-              e.currentTarget.style.background = '#00f5a0';
+              e.currentTarget.style.background = '#e2e8f0';
               e.currentTarget.style.color = '#08090e';
             }}
             onMouseLeave={e => {
               e.currentTarget.style.background = 'transparent';
-              e.currentTarget.style.color = '#00f5a0';
+              e.currentTarget.style.color = '#e2e8f0';
             }}
           >Start a Project →</a>
 
@@ -123,8 +123,8 @@ export default function Nav() {
                 onClick={() => setOpen(false)}
                 style={{
                   display: 'inline-block', padding: '0.6rem 1.4rem',
-                  border: '1px solid #00f5a0', borderRadius: '6px',
-                  color: '#00f5a0', textDecoration: 'none', fontSize: '0.9rem', fontWeight: 500,
+                  border: '1px solid #e2e8f0', borderRadius: '6px',
+                  color: '#e2e8f0', textDecoration: 'none', fontSize: '0.9rem', fontWeight: 500,
                 }}
               >Start a Project →</a>
             </li>

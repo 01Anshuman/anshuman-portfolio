@@ -49,7 +49,7 @@ export default function Hero() {
       }}
     >
       {/* Glow blobs */}
-      <div className="glow-blob" style={{ width: 500, height: 500, background: 'rgba(0,245,160,0.12)', top: '-100px', left: '-150px' }} />
+      <div className="glow-blob" style={{ width: 500, height: 500, background: 'rgba(226,232,240,0.08)', top: '-100px', left: '-150px' }} />
       <div className="glow-blob" style={{ width: 400, height: 400, background: 'rgba(0,180,255,0.1)', bottom: '-80px', right: '-100px', animationDelay: '4s' }} />
 
       <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 2rem', width: '100%', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4rem', alignItems: 'center' }}
@@ -60,15 +60,15 @@ export default function Hero() {
           <motion.div custom={0} variants={fadeUp} initial="hidden" animate="show"
             style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1.5rem',
               padding: '0.35rem 0.9rem', borderRadius: '100px',
-              border: '1px solid rgba(0,245,160,0.3)', background: 'rgba(0,245,160,0.06)' }}>
-            <span style={{ width: 8, height: 8, borderRadius: '50%', background: '#00f5a0', display: 'inline-block', boxShadow: '0 0 8px #00f5a0' }} />
-            <span style={{ fontSize: '0.8rem', color: '#00f5a0', fontWeight: 500 }}>Available for projects</span>
+              border: '1px solid rgba(226,232,240,0.15)', background: 'rgba(226,232,240,0.05)' }}>
+            <span style={{ width: 8, height: 8, borderRadius: '50%', background: '#e2e8f0', display: 'inline-block', boxShadow: '0 0 8px #e2e8f0' }} />
+            <span style={{ fontSize: '0.8rem', color: '#e2e8f0', fontWeight: 500 }}>Available for projects</span>
           </motion.div>
 
           <motion.h1 custom={1} variants={fadeUp} initial="hidden" animate="show"
             style={{ fontFamily: 'Syne, sans-serif', fontWeight: 800, fontSize: 'clamp(2.6rem, 5vw, 4.2rem)', lineHeight: 1.08, marginBottom: '1.2rem', color: '#f0f0f0' }}>
             Building Products<br />
-            <span style={{ background: 'linear-gradient(90deg, #00f5a0, #00b4ff)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+            <span style={{ background: 'linear-gradient(135deg, #ffffff, #00b4ff)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
               That Actually Work.
             </span>
           </motion.h1>
@@ -86,8 +86,8 @@ export default function Hero() {
               fontFamily: 'monospace', fontSize: '0.9rem',
             }}>
             <span style={{ color: '#8892a4' }}>$ </span>
-            <span style={{ color: '#00f5a0' }}>&gt; {displayed}</span>
-            <span className="cursor-blink" style={{ color: '#00f5a0', marginLeft: '2px' }}>█</span>
+            <span style={{ color: '#e2e8f0' }}>&gt; {displayed}</span>
+            <span className="cursor-blink" style={{ color: '#e2e8f0', marginLeft: '2px' }}>█</span>
           </motion.div>
 
           <motion.p custom={4} variants={fadeUp} initial="hidden" animate="show"
@@ -100,10 +100,11 @@ export default function Hero() {
             <a href="#work"
               style={{
                 padding: '0.75rem 1.8rem', borderRadius: '8px',
-                background: 'linear-gradient(135deg, #00f5a0, #00b4ff)',
+                background: 'linear-gradient(135deg, #ffffff, #00b4ff)',
                 color: '#08090e', fontWeight: 700, textDecoration: 'none',
                 fontSize: '0.95rem', fontFamily: 'Syne, sans-serif',
                 transition: 'opacity 0.2s, transform 0.2s',
+                textAlign: 'center', flex: '1 1 auto',
               }}
               onMouseEnter={e => { e.currentTarget.style.opacity = '0.88'; e.currentTarget.style.transform = 'translateY(-2px)'; }}
               onMouseLeave={e => { e.currentTarget.style.opacity = '1'; e.currentTarget.style.transform = 'translateY(0)'; }}
@@ -114,8 +115,9 @@ export default function Hero() {
                 border: '1px solid rgba(255,255,255,0.15)',
                 color: '#f0f0f0', fontWeight: 500, textDecoration: 'none',
                 fontSize: '0.95rem', transition: 'border-color 0.2s, transform 0.2s',
+                textAlign: 'center', flex: '1 1 auto',
               }}
-              onMouseEnter={e => { e.currentTarget.style.borderColor = 'rgba(0,245,160,0.5)'; e.currentTarget.style.transform = 'translateY(-2px)'; }}
+              onMouseEnter={e => { e.currentTarget.style.borderColor = 'rgba(255,255,255,0.4)'; e.currentTarget.style.transform = 'translateY(-2px)'; }}
               onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(255,255,255,0.15)'; e.currentTarget.style.transform = 'translateY(0)'; }}
             >Let&apos;s Talk</a>
           </motion.div>
@@ -125,7 +127,7 @@ export default function Hero() {
             style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap' }}>
             {TRUST_ITEMS.map((item) => (
               <span key={item} style={{ fontSize: '0.8rem', color: '#8892a4', display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
-                <span style={{ color: '#00f5a0' }}>✓</span> {item}
+                <span style={{ color: '#e2e8f0' }}>✓</span> {item}
               </span>
             ))}
           </motion.div>
@@ -143,7 +145,7 @@ export default function Hero() {
             <div style={{
               position: 'absolute', bottom: 0, left: '50%', transform: 'translateX(-50%)',
               width: '80%', height: '60%',
-              background: 'radial-gradient(ellipse, rgba(0,245,160,0.18) 0%, rgba(0,180,255,0.1) 50%, transparent 75%)',
+              background: 'radial-gradient(ellipse, rgba(226,232,240,0.08) 0%, rgba(0,180,255,0.1) 50%, transparent 75%)',
               filter: 'blur(40px)',
               zIndex: 0,
             }} />
@@ -174,11 +176,11 @@ export default function Hero() {
                 </div>
                 <div style={{
                   padding: '0.3rem 0.7rem', borderRadius: '100px',
-                  background: 'rgba(0,245,160,0.1)', border: '1px solid rgba(0,245,160,0.3)',
-                  fontSize: '0.7rem', color: '#00f5a0', fontWeight: 700,
+                  background: 'rgba(226,232,240,0.07)', border: '1px solid rgba(226,232,240,0.15)',
+                  fontSize: '0.7rem', color: '#e2e8f0', fontWeight: 700,
                   display: 'flex', alignItems: 'center', gap: '0.35rem',
                 }}>
-                  <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#00f5a0', display: 'inline-block', boxShadow: '0 0 6px #00f5a0' }} />
+                  <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#e2e8f0', display: 'inline-block', boxShadow: '0 0 6px #e2e8f0' }} />
                   Available
                 </div>
               </div>

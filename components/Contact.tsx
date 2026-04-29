@@ -61,12 +61,12 @@ export default function Contact() {
 
   return (
     <section id="contact" ref={ref} style={{ padding: '7rem 0', background: 'var(--bg-primary)', position: 'relative', overflow: 'hidden' }}>
-      <div className="glow-blob" style={{ width: 500, height: 400, background: 'rgba(0,245,160,0.07)', bottom: '-100px', left: '50%', transform: 'translateX(-50%)' }} />
+      <div className="glow-blob" style={{ width: 500, height: 400, background: 'rgba(226,232,240,0.05)', bottom: '-100px', left: '50%', transform: 'translateX(-50%)' }} />
 
       <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 2rem' }}>
         <motion.div initial={{ opacity: 0, y: 24 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6 }}
           style={{ marginBottom: '3.5rem' }}>
-          <span style={{ fontFamily: 'monospace', fontSize: '0.85rem', color: '#00f5a0', letterSpacing: '0.1em', display: 'block', marginBottom: '0.75rem' }}>
+          <span style={{ fontFamily: 'monospace', fontSize: '0.85rem', color: '#e2e8f0', letterSpacing: '0.1em', display: 'block', marginBottom: '0.75rem' }}>
             &lt; CONTACT /&gt;
           </span>
         </motion.div>
@@ -84,7 +84,7 @@ export default function Contact() {
                 'Ongoing support & optimization post-launch',
               ].map((item) => (
                 <li key={item} style={{ display: 'flex', gap: '0.75rem', alignItems: 'flex-start', color: '#8892a4', fontSize: '0.95rem', lineHeight: 1.6 }}>
-                  <span style={{ color: '#00f5a0', marginTop: '0.15rem', flexShrink: 0 }}>→</span>
+                  <span style={{ color: '#e2e8f0', marginTop: '0.15rem', flexShrink: 0 }}>→</span>
                   {item}
                 </li>
               ))}
@@ -113,10 +113,10 @@ export default function Contact() {
                     transition: 'border-color 0.2s, color 0.2s',
                     width: 'fit-content', maxWidth: '100%', wordBreak: 'break-all',
                   }}
-                  onMouseEnter={e => { e.currentTarget.style.borderColor = 'rgba(0,245,160,0.3)'; e.currentTarget.style.color = '#00f5a0'; }}
+                  onMouseEnter={e => { e.currentTarget.style.borderColor = 'rgba(226,232,240,0.15)'; e.currentTarget.style.color = '#e2e8f0'; }}
                   onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(255,255,255,0.08)'; e.currentTarget.style.color = '#8892a4'; }}
                 >
-                  <span style={{ color: '#00f5a0', flexShrink: 0 }}>{chip.icon}</span>
+                  <span style={{ color: '#e2e8f0', flexShrink: 0 }}>{chip.icon}</span>
                   {chip.label}
                 </a>
               ))}
@@ -127,7 +127,7 @@ export default function Contact() {
           <motion.div initial={{ opacity: 0, x: 30 }} animate={inView ? { opacity: 1, x: 0 } : {}} transition={{ duration: 0.6, delay: 0.1 }}>
             {formState === 'success' ? (
               <div style={{
-                background: 'rgba(0,245,160,0.06)', border: '1px solid rgba(0,245,160,0.2)',
+                background: 'rgba(226,232,240,0.05)', border: '1px solid rgba(226,232,240,0.12)',
                 borderRadius: '16px', padding: '3rem', textAlign: 'center',
               }}>
                 <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>✅</div>
@@ -154,7 +154,7 @@ export default function Contact() {
                   <input id="name" type="text" placeholder="Your name" value={form.name}
                     onChange={e => { setForm({ ...form, name: e.target.value }); setErrors({ ...errors, name: '' }); }}
                     style={inputStyle('name')}
-                    onFocus={e => (e.target.style.borderColor = 'rgba(0,245,160,0.4)')}
+                    onFocus={e => (e.target.style.borderColor = 'rgba(226,232,240,0.4)')}
                     onBlur={e => (e.target.style.borderColor = errors.name ? '#ff6b6b' : 'rgba(255,255,255,0.1)')}
                   />
                   {errors.name && <span style={{ fontSize: '0.75rem', color: '#ff6b6b' }}>{errors.name}</span>}
@@ -165,7 +165,7 @@ export default function Contact() {
                   <input id="email" type="email" placeholder="your@email.com" value={form.email}
                     onChange={e => { setForm({ ...form, email: e.target.value }); setErrors({ ...errors, email: '' }); }}
                     style={inputStyle('email')}
-                    onFocus={e => (e.target.style.borderColor = 'rgba(0,245,160,0.4)')}
+                    onFocus={e => (e.target.style.borderColor = 'rgba(226,232,240,0.4)')}
                     onBlur={e => (e.target.style.borderColor = errors.email ? '#ff6b6b' : 'rgba(255,255,255,0.1)')}
                   />
                   {errors.email && <span style={{ fontSize: '0.75rem', color: '#ff6b6b' }}>{errors.email}</span>}
@@ -176,7 +176,7 @@ export default function Contact() {
                   <select id="service" value={form.service}
                     onChange={e => { setForm({ ...form, service: e.target.value }); setErrors({ ...errors, service: '' }); }}
                     style={{ ...inputStyle('service'), cursor: 'pointer' }}
-                    onFocus={e => (e.target.style.borderColor = 'rgba(0,245,160,0.4)')}
+                    onFocus={e => (e.target.style.borderColor = 'rgba(226,232,240,0.4)')}
                     onBlur={e => (e.target.style.borderColor = errors.service ? '#ff6b6b' : 'rgba(255,255,255,0.1)')}
                   >
                     <option value="" style={{ background: '#0f1117' }}>Select a service</option>
@@ -193,7 +193,7 @@ export default function Contact() {
                   <textarea id="message" rows={4} placeholder="Tell me about your project..." value={form.message}
                     onChange={e => { setForm({ ...form, message: e.target.value }); setErrors({ ...errors, message: '' }); }}
                     style={{ ...inputStyle('message'), resize: 'vertical', minHeight: '110px' }}
-                    onFocus={e => (e.target.style.borderColor = 'rgba(0,245,160,0.4)')}
+                    onFocus={e => (e.target.style.borderColor = 'rgba(226,232,240,0.4)')}
                     onBlur={e => (e.target.style.borderColor = errors.message ? '#ff6b6b' : 'rgba(255,255,255,0.1)')}
                   />
                   {errors.message && <span style={{ fontSize: '0.75rem', color: '#ff6b6b' }}>{errors.message}</span>}
@@ -204,7 +204,7 @@ export default function Contact() {
                   disabled={formState === 'loading'}
                   style={{
                     padding: '0.85rem 2rem', borderRadius: '8px',
-                    background: formState === 'loading' ? 'rgba(0,245,160,0.4)' : 'linear-gradient(135deg, #00f5a0, #00b4ff)',
+                    background: formState === 'loading' ? 'rgba(226,232,240,0.4)' : 'linear-gradient(135deg, #ffffff, #00b4ff)',
                     border: 'none', color: '#08090e', fontWeight: 700,
                     fontSize: '0.95rem', fontFamily: 'Syne, sans-serif',
                     cursor: formState === 'loading' ? 'not-allowed' : 'pointer',

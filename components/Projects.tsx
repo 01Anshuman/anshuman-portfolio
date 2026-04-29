@@ -14,7 +14,7 @@ export default function Projects() {
       <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 2rem' }}>
         <motion.div initial={{ opacity: 0, y: 24 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6 }}
           style={{ marginBottom: '3.5rem' }}>
-          <span style={{ fontFamily: 'monospace', fontSize: '0.85rem', color: '#00f5a0', letterSpacing: '0.1em', display: 'block', marginBottom: '0.75rem' }}>
+          <span style={{ fontFamily: 'monospace', fontSize: '0.85rem', color: '#e2e8f0', letterSpacing: '0.1em', display: 'block', marginBottom: '0.75rem' }}>
             &lt; WORK /&gt;
           </span>
           <h2 style={{ fontFamily: 'Syne, sans-serif', fontWeight: 800, fontSize: 'clamp(2rem, 4vw, 3rem)', color: '#f0f0f0' }}>
@@ -103,8 +103,8 @@ export default function Projects() {
                   {proj.results.map((r: string) => (
                     <span key={r} style={{
                       padding: '0.3rem 0.7rem', borderRadius: '6px',
-                      background: 'rgba(0,245,160,0.08)', border: '1px solid rgba(0,245,160,0.2)',
-                      fontSize: '0.78rem', color: '#00f5a0', fontWeight: 600,
+                      background: 'rgba(226,232,240,0.06)', border: '1px solid rgba(226,232,240,0.12)',
+                      fontSize: '0.78rem', color: '#e2e8f0', fontWeight: 600,
                     }}>✓ {r}</span>
                   ))}
                 </div>
@@ -118,12 +118,12 @@ export default function Projects() {
                     style={{
                       display: 'inline-flex', alignItems: 'center', gap: '0.4rem',
                       padding: '0.45rem 1rem', borderRadius: '6px',
-                      border: '1px solid rgba(0,245,160,0.3)',
-                      color: '#00f5a0', fontSize: '0.8rem', fontWeight: 600,
+                      border: '1px solid rgba(226,232,240,0.15)',
+                      color: '#e2e8f0', fontSize: '0.8rem', fontWeight: 600,
                       textDecoration: 'none', transition: 'background 0.2s',
                       alignSelf: 'flex-start',
                     }}
-                    onMouseEnter={e => (e.currentTarget.style.background = 'rgba(0,245,160,0.08)')}
+                    onMouseEnter={e => (e.currentTarget.style.background = 'rgba(226,232,240,0.06)')}
                     onMouseLeave={e => (e.currentTarget.style.background = 'transparent')}
                   >
                     {proj.linkLabel || '🔗 View Live Site'}
@@ -137,7 +137,7 @@ export default function Projects() {
         <motion.p initial={{ opacity: 0 }} animate={inView ? { opacity: 1 } : {}} transition={{ delay: 0.6 }}
           style={{ textAlign: 'center', color: '#8892a4', fontSize: '0.875rem' }}>
           More case studies available on request —{' '}
-          <a href="#contact" style={{ color: '#00f5a0', textDecoration: 'none' }}>get in touch</a>
+          <a href="#contact" style={{ color: '#e2e8f0', textDecoration: 'none' }}>get in touch</a>
         </motion.p>
       </div>
 

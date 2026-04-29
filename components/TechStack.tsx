@@ -5,7 +5,7 @@ import { useRef } from 'react';
 import { TECH_STACK, TICKER_ITEMS } from '@/lib/constants';
 
 const GROUP_COLORS: Record<string, string> = {
-  Frontend: '#00f5a0',
+  Frontend: '#e2e8f0',
   Backend: '#00b4ff',
   Database: '#ff6b6b',
   'AI & Automation': '#a78bfa',
@@ -25,7 +25,7 @@ export default function TechStack() {
         {/* Header */}
         <motion.div initial={{ opacity: 0, y: 24 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6 }}
           style={{ marginBottom: '3.5rem' }}>
-          <span style={{ fontFamily: 'monospace', fontSize: '0.85rem', color: '#00f5a0', letterSpacing: '0.1em', display: 'block', marginBottom: '0.75rem' }}>
+          <span style={{ fontFamily: 'monospace', fontSize: '0.85rem', color: '#e2e8f0', letterSpacing: '0.1em', display: 'block', marginBottom: '0.75rem' }}>
             &lt; STACK /&gt;
           </span>
           <h2 style={{ fontFamily: 'Syne, sans-serif', fontWeight: 800, fontSize: 'clamp(2rem, 4vw, 3rem)', color: '#f0f0f0', marginBottom: '0.75rem' }}>
@@ -53,8 +53,8 @@ export default function TechStack() {
               }}
             >
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1.2rem' }}>
-                <span style={{ width: 10, height: 10, borderRadius: '50%', background: GROUP_COLORS[group] || '#00f5a0', display: 'inline-block' }} />
-                <span style={{ fontFamily: 'Syne, sans-serif', fontWeight: 700, fontSize: '0.85rem', color: GROUP_COLORS[group] || '#00f5a0', letterSpacing: '0.05em', textTransform: 'uppercase' }}>
+                <span style={{ width: 10, height: 10, borderRadius: '50%', background: GROUP_COLORS[group] || '#e2e8f0', display: 'inline-block' }} />
+                <span style={{ fontFamily: 'Syne, sans-serif', fontWeight: 700, fontSize: '0.85rem', color: GROUP_COLORS[group] || '#e2e8f0', letterSpacing: '0.05em', textTransform: 'uppercase' }}>
                   {group}
                 </span>
               </div>

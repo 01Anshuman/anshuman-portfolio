@@ -27,7 +27,7 @@ const roles = [
     company: 'FireFlink',
     title: 'SDR — US Market',
     period: 'Previous',
-    accent: '#00f5a0',
+    accent: '#e2e8f0',
     description:
       'Ran full-cycle B2B SaaS outbound into the US market — targeting QA Directors, CTOs, VPs of Engineering, and Founders at US-headquartered SaaS startups and mid-market companies.',
     outboundMotion: [
@@ -57,7 +57,7 @@ export default function SDR() {
         {/* Header */}
         <motion.div initial={{ opacity: 0, y: 24 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6 }}
           style={{ marginBottom: '3rem' }}>
-          <span style={{ fontFamily: 'monospace', fontSize: '0.85rem', color: '#00f5a0', letterSpacing: '0.1em', display: 'block', marginBottom: '0.75rem' }}>
+          <span style={{ fontFamily: 'monospace', fontSize: '0.85rem', color: '#e2e8f0', letterSpacing: '0.1em', display: 'block', marginBottom: '0.75rem' }}>
             &lt; SDR /&gt;
           </span>
           <h2 style={{ fontFamily: 'Syne, sans-serif', fontWeight: 800, fontSize: 'clamp(2rem, 4vw, 3rem)', color: '#f0f0f0' }}>
@@ -105,10 +105,10 @@ export default function SDR() {
                   {role.company}
                 </span>
                 <span style={{
-                  fontSize: '0.75rem', color: role.period === 'Current' ? '#00f5a0' : '#8892a4',
+                  fontSize: '0.75rem', color: role.period === 'Current' ? '#e2e8f0' : '#8892a4',
                   padding: '0.15rem 0.6rem', borderRadius: '100px',
-                  background: role.period === 'Current' ? 'rgba(0,245,160,0.08)' : 'rgba(255,255,255,0.04)',
-                  border: `1px solid ${role.period === 'Current' ? 'rgba(0,245,160,0.25)' : 'rgba(255,255,255,0.08)'}`,
+                  background: role.period === 'Current' ? 'rgba(226,232,240,0.06)' : 'rgba(255,255,255,0.04)',
+                  border: `1px solid ${role.period === 'Current' ? 'rgba(226,232,240,0.15)' : 'rgba(255,255,255,0.08)'}`,
                 }}>
                   {role.period}
                 </span>

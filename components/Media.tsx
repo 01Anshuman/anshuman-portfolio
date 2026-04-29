@@ -84,7 +84,7 @@ export default function Media() {
       <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 2rem' }}>
         <motion.div initial={{ opacity: 0, y: 24 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6 }}
           style={{ marginBottom: '3.5rem' }}>
-          <span style={{ fontFamily: 'monospace', fontSize: '0.85rem', color: '#00f5a0', letterSpacing: '0.1em', display: 'block', marginBottom: '0.75rem' }}>
+          <span style={{ fontFamily: 'monospace', fontSize: '0.85rem', color: '#e2e8f0', letterSpacing: '0.1em', display: 'block', marginBottom: '0.75rem' }}>
             &lt; MEDIA /&gt;
           </span>
           <h2 style={{ fontFamily: 'Syne, sans-serif', fontWeight: 800, fontSize: 'clamp(2rem, 4vw, 3rem)', color: '#f0f0f0' }}>
@@ -127,7 +127,7 @@ export default function Media() {
 
                 <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', marginBottom: '1rem' }}>
                   {item.stats.map((s) => (
-                    <span key={s} style={{ fontSize: '0.75rem', color: '#00f5a0', fontWeight: 600 }}>{s}</span>
+                    <span key={s} style={{ fontSize: '0.75rem', color: '#e2e8f0', fontWeight: 600 }}>{s}</span>
                   ))}
                 </div>
 
@@ -158,12 +158,12 @@ export default function Media() {
                       rel="noopener noreferrer"
                       style={{
                         display: 'inline-flex', alignItems: 'center', gap: '0.4rem',
-                        color: '#00f5a0', fontSize: '0.82rem', fontWeight: 600, textDecoration: 'none',
+                        color: '#e2e8f0', fontSize: '0.82rem', fontWeight: 600, textDecoration: 'none',
                         padding: '0.35rem 0.9rem', borderRadius: '6px',
-                        border: '1px solid rgba(0,245,160,0.3)',
+                        border: '1px solid rgba(226,232,240,0.15)',
                         alignSelf: 'flex-start', transition: 'background 0.2s',
                       }}
-                      onMouseEnter={e => (e.currentTarget.style.background = 'rgba(0,245,160,0.08)')}
+                      onMouseEnter={e => (e.currentTarget.style.background = 'rgba(226,232,240,0.06)')}
                       onMouseLeave={e => (e.currentTarget.style.background = 'transparent')}
                     >
                       {item.ctaLabel as string}

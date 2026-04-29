@@ -17,7 +17,7 @@ export default function Footer() {
                 width: '32px', height: '32px',
                 borderRadius: '50%',
                 overflow: 'hidden',
-                border: '2px solid rgba(0,245,160,0.4)',
+                border: '2px solid rgba(226,232,240,0.4)',
                 flexShrink: 0,
               }}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -48,7 +48,7 @@ export default function Footer() {
             <p style={{ color: '#8892a4', fontSize: '0.78rem' }}>
               {['Next.js', 'React', 'Tailwind', 'Framer Motion'].map((t, i, arr) => (
                 <span key={t}>
-                  <span style={{ color: '#00f5a0' }}>{t}</span>
+                  <span style={{ color: '#e2e8f0' }}>{t}</span>
                   {i < arr.length - 1 && <span> · </span>}
                 </span>
               ))}

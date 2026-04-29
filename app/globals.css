@@ -127,69 +127,263 @@ body {
    RESPONSIVE OVERRIDES
    ===================== */
 
-/* Reduce section vertical padding on mobile */
+/* Base: reduce section vertical padding on mobile */
 @media (max-width: 768px) {
   section { padding-top: 4rem !important; padding-bottom: 4rem !important; }
 }
 
-/* Auto-fit grids: force single column on small mobile */
+/* Small mobile: single column for all grids */
 @media (max-width: 480px) {
-  /* Tech stack, services, projects, media, testimonials, metrics */
-  [style*="minmax(300px"] { grid-template-columns: 1fr !important; }
-  [style*="minmax(280px"] { grid-template-columns: 1fr !important; }
-  [style*="minmax(320px"] { grid-template-columns: 1fr !important; }
-  [style*="minmax(200px"] { grid-template-columns: 1fr 1fr !important; }
-}
-
-/* Tablet: 2-col for cards */
-@media (min-width: 481px) and (max-width: 900px) {
-  [style*="minmax(300px"] { grid-template-columns: repeat(2, 1fr) !important; }
-  [style*="minmax(280px"] { grid-template-columns: repeat(2, 1fr) !important; }
-  [style*="minmax(320px"] { grid-template-columns: repeat(2, 1fr) !important; }
-  [style*="minmax(200px"] { grid-template-columns: repeat(3, 1fr) !important; }
-}
-
-/* Contact chips: allow wrapping on small screens */
-@media (max-width: 600px) {
-  .contact-chip { font-size: 0.78rem !important; padding: 0.5rem 0.75rem !important; }
-}
-
-/* Nav: tighter padding on mobile */
-@media (max-width: 480px) {
-  nav > div { padding: 0 1rem !important; }
-}
-
-/* Hero section padding on mobile */
-@media (max-width: 768px) {
-  #about { padding-top: 5rem !important; padding-bottom: 3rem !important; }
-  #about .hero-grid { padding: 0 1.25rem !important; }
-}
-
-/* Process grid: tablet 2-col */
-@media (min-width: 481px) and (max-width: 900px) {
-  .process-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 2rem !important; }
-  .process-line { display: none !important; }
-  .process-grid > div { text-align: center !important; }
-}
-
-/* Footer: tablet stacks to 2-col then 1-col */
-@media (min-width: 481px) and (max-width: 900px) {
-  .footer-grid { grid-template-columns: 1fr 1fr !important; }
-  .footer-grid > nav { grid-column: 1 / -1; }
-  .footer-grid > div:last-child { text-align: left !important; }
-}
-
-/* Metrics: 2-col on mobile */
-@media (max-width: 480px) {
-  [style*="minmax(200px"] { grid-template-columns: repeat(2, 1fr) !important; }
-}
-
-/* General container padding on small mobile */
-@media (max-width: 480px) {
+  /* Force single column for card grids */
+  [style*="minmax(300px"],
+  [style*="minmax(280px"],
+  [style*="minmax(320px"] { 
+    grid-template-columns: 1fr !important; 
+  }
+  
+  /* Metrics: 2-col on mobile */
+  [style*="minmax(200px"] { 
+    grid-template-columns: repeat(2, 1fr) !important; 
+  }
+  
+  /* Container padding */
   [style*="padding: '0 2rem'"],
-  [style*='padding: "0 2rem"'] { padding: 0 1.25rem !important; }
+  [style*='padding: "0 2rem"'],
+  [style*="padding: 0 2rem"] { 
+    padding-left: 1.25rem !important; 
+    padding-right: 1.25rem !important; 
+  }
+  
+  /* Max width containers */
+  [style*="maxWidth: '1280px'"],
+  [style*='maxWidth: "1280px"'],
+  [style*="max-width: 1280px"] {
+    padding-left: 1.25rem !important;
+    padding-right: 1.25rem !important;
+  }
+  
+  /* Hero buttons: stack vertically */
+  #about [style*="display: flex"][style*="gap: '1rem'"] {
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+  #about [style*="display: flex"][style*="gap: '1rem'"] a {
+    text-align: center !important;
+  }
+  
+  /* Trust bar: stack */
+  #about [style*="display: flex"][style*="gap: '1.5rem'"] {
+    flex-direction: column !important;
+    gap: 0.75rem !important;
+  }
+  
+  /* Contact chips: smaller text */
+  .contact-chip { 
+    font-size: 0.78rem !important; 
+    padding: 0.5rem 0.75rem !important; 
+  }
+  
+  /* Nav: tighter padding */
+  nav > div { 
+    padding-left: 1rem !important; 
+    padding-right: 1rem !important; 
+  }
+  
+  /* Hero: tighter padding */
+  #about { 
+    padding-top: 5rem !important; 
+    padding-bottom: 3rem !important; 
+  }
+  
+  /* Process: single column, left-aligned */
+  .process-grid { 
+    grid-template-columns: 1fr !important; 
+    gap: 2rem !important; 
+  }
+  .process-line { 
+    display: none !important; 
+  }
+  
+  /* Footer: single column, center */
+  .footer-grid { 
+    grid-template-columns: 1fr !important; 
+    text-align: center !important; 
+  }
+  .footer-built { 
+    text-align: center !important; 
+  }
+  .footer-logo { 
+    justify-content: center !important; 
+  }
+  .footer-nav ul { 
+    justify-content: center !important; 
+    flex-wrap: wrap !important; 
+    gap: 1rem !important; 
+  }
+  
+  /* SDR cards: single column */
+  .sdr-cols { 
+    grid-template-columns: 1fr !important; 
+    gap: 1.5rem !important; 
+  }
+  
+  /* Media grid: single column */
+  .media-grid { 
+    grid-template-columns: 1fr !important; 
+  }
+  
+  /* Projects grid: single column */
+  .projects-grid { 
+    grid-template-columns: 1fr !important; 
+  }
+  
+  /* Services grid: single column */
+  .services-grid { 
+    grid-template-columns: 1fr !important; 
+  }
+  
+  /* Tech grid: single column */
+  .tech-grid { 
+    grid-template-columns: 1fr !important; 
+  }
+  
+  /* Testimonials: single column */
+  .testimonials-grid { 
+    grid-template-columns: 1fr !important; 
+  }
+  
+  /* Contact grid: single column */
+  .contact-grid { 
+    grid-template-columns: 1fr !important; 
+    gap: 2.5rem !important; 
+  }
+  
+  /* Hero grid: single column, photo first */
+  .hero-grid { 
+    grid-template-columns: 1fr !important; 
+    gap: 2.5rem !important; 
+  }
+  .hero-grid > div:first-child { 
+    order: 2 !important; 
+  }
+  .hero-visual { 
+    display: flex !important; 
+    order: 1 !important; 
+    justify-content: center !important; 
+  }
+  .hero-visual > div { 
+    max-width: 300px !important; 
+  }
+}
+
+/* Tablet: 2-col for most grids */
+@media (min-width: 481px) and (max-width: 900px) {
+  /* Card grids: 2 columns */
+  [style*="minmax(300px"],
+  [style*="minmax(280px"],
+  [style*="minmax(320px"] { 
+    grid-template-columns: repeat(2, 1fr) !important; 
+  }
+  
+  /* Metrics: 3 columns */
+  [style*="minmax(200px"] { 
+    grid-template-columns: repeat(3, 1fr) !important; 
+  }
+  
+  /* Hero: single column, photo first */
+  .hero-grid { 
+    grid-template-columns: 1fr !important; 
+    gap: 2.5rem !important; 
+  }
+  .hero-grid > div:first-child { 
+    order: 2 !important; 
+  }
+  .hero-visual { 
+    display: flex !important; 
+    order: 1 !important; 
+    justify-content: center !important; 
+  }
+  .hero-visual > div { 
+    max-width: 360px !important; 
+  }
+  
+  /* Process: 2-col */
+  .process-grid { 
+    grid-template-columns: repeat(2, 1fr) !important; 
+    gap: 2.5rem !important; 
+  }
+  .process-line { 
+    display: none !important; 
+  }
+  
+  /* Footer: 2-col */
+  .footer-grid { 
+    grid-template-columns: 1fr 1fr !important; 
+    gap: 1.5rem !important; 
+  }
+  .footer-nav { 
+    grid-column: 1 / -1 !important; 
+  }
+  .footer-built { 
+    text-align: left !important; 
+  }
+  
+  /* Contact: single column */
+  .contact-grid { 
+    grid-template-columns: 1fr !important; 
+    gap: 2.5rem !important; 
+  }
+  
+  /* Projects: 2-col */
+  .projects-grid { 
+    grid-template-columns: repeat(2, 1fr) !important; 
+  }
+  
+  /* Services: 2-col */
+  .services-grid { 
+    grid-template-columns: repeat(2, 1fr) !important; 
+  }
+  
+  /* Tech: 2-col */
+  .tech-grid { 
+    grid-template-columns: repeat(2, 1fr) !important; 
+  }
+  
+  /* SDR: single column on tablet */
+  .sdr-cols { 
+    grid-template-columns: 1fr !important; 
+    gap: 1.5rem !important; 
+  }
+  
+  /* Testimonials: single column on tablet */
+  .testimonials-grid { 
+    grid-template-columns: 1fr !important; 
+  }
+}
+
+/* Large tablet / small desktop: keep hero 2-col */
+@media (min-width: 901px) and (max-width: 1100px) {
+  .hero-visual > div { 
+    max-width: 380px !important; 
+  }
 }
 
 /* Prevent horizontal overflow everywhere */
-img { max-width: 100%; height: auto; }
-* { min-width: 0; }
+img { 
+  max-width: 100%; 
+  height: auto; 
+}
+* { 
+  min-width: 0; 
+}
+body {
+  overflow-x: hidden;
+}
+
+/* Typography scaling on mobile */
+@media (max-width: 480px) {
+  h1, h2, h3 {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+}
